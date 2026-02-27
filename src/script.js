@@ -43,7 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function init() {
   try {
-    const response = await fetch('./games.json');
+    // Try both paths for maximum compatibility between dev and production
+    let response;
+    try {
+      response = await fetch('./games.json');
+      if (!response.ok) throw new Error();
+    } catch (e) {
+      response = await fetch('./src/games.json');
+    }
     games = await response.json();
     renderGames();
   } catch (error) {
