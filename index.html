@@ -42,6 +42,14 @@
         </div>
 
         <div class="flex items-center gap-4">
+          <button 
+            onclick="window.location.href='https://classroom.google.com'"
+            class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg transition-colors flex items-center gap-2 text-xs font-bold"
+            title="Panic Button (Press ` key)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L22 22"/></svg>
+            PANIC
+          </button>
           <button class="p-2 hover:bg-zinc-100 rounded-full transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
           </button>
@@ -108,8 +116,25 @@
           <div>
             <h2 id="game-title" class="text-2xl font-bold"></h2>
             <p id="game-desc" class="text-zinc-500"></p>
+            <p class="text-xs text-emerald-600 mt-2 font-medium">
+              Tip: Use "Cloak Play" if the game is blocked by your school filter.
+            </p>
           </div>
           <div class="flex gap-2">
+            <button 
+              onclick="cloakGame()"
+              class="bg-emerald-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-emerald-700 transition-colors flex items-center gap-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              Cloak Play
+            </button>
+            <button 
+              onclick="disguiseTab()"
+              class="bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Tab Disguise
+            </button>
             <button class="bg-zinc-900 text-white px-6 py-2 rounded-xl font-semibold hover:bg-zinc-800 transition-colors">
               Favorite
             </button>

@@ -122,3 +122,48 @@ window.closeGame = function() {
   gamePlayer.classList.add('hidden');
   iframeContainer.innerHTML = '';
 };
+
+window.cloakGame = function() {
+  if (!selectedGame) return;
+  
+  const url = selectedGame.url;
+  const win = window.open();
+  if (!win) {
+    alert('Please allow popups to use Cloak Play!');
+    return;
+  }
+  
+  win.document.body.style.margin = '0';
+  win.document.body.style.height = '100vh';
+  
+  const iframe = win.document.createElement('iframe');
+  iframe.style.border = 'none';
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.margin = '0';
+  iframe.src = url;
+  
+  win.document.body.appendChild(iframe);
+};
+
+window.disguiseTab = function() {
+  const title = "Classes";
+  const icon = "https://ssl.gstatic.com/classroom/favicon.png";
+  
+  document.title = title;
+  
+  let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+  link.type = 'image/x-icon';
+  link.rel = 'shortcut icon';
+  link.href = icon;
+  document.getElementsByTagName('head')[0].appendChild(link);
+  
+  alert('Tab disguised as Google Classroom!');
+};
+
+// Panic Key (Backtick `)
+document.addEventListener('keydown', (e) => {
+  if (e.key === '`') {
+    window.location.href = 'https://classroom.google.com';
+  }
+});
