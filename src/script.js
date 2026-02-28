@@ -126,24 +126,37 @@ window.closeGame = function() {
 window.cloakGame = function() {
   if (!selectedGame) return;
   
-  const url = selectedGame.url;
-  const win = window.open();
+  // Convert relative URL to absolute URL so it works in about:blank
+  let url = selectedGame.url;
+  if (url.startsWith('./') || url.startsWith('/')) {
+    const link = document.createElement('a');
+    link.href = url;
+    url = link.href;
+  }
+
+  const win = window.open('about:blank', '_blank');
   if (!win) {
     alert('Please allow popups to use Cloak Play!');
     return;
   }
   
-  win.document.body.style.margin = '0';
-  win.document.body.style.height = '100vh';
-  
-  const iframe = win.document.createElement('iframe');
-  iframe.style.border = 'none';
-  iframe.style.width = '100%';
-  iframe.style.height = '100%';
-  iframe.style.margin = '0';
-  iframe.src = url;
-  
-  win.document.body.appendChild(iframe);
+  win.document.write(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Classes</title>
+        <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/classroom/favicon.png">
+        <style>
+          body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
+          iframe { width: 100%; height: 100%; border: none; }
+        </style>
+      </head>
+      <body>
+        <iframe src="${url}"></iframe>
+      </body>
+    </html>
+  `);
+  win.document.close();
 };
 
 window.disguiseTab = function() {
