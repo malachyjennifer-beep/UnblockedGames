@@ -44,12 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
 async function init() {
   try {
     // Try both paths for maximum compatibility between dev and production
+    // Added timestamp to prevent browser caching of old game URLs
+    const timestamp = Date.now();
     let response;
     try {
-      response = await fetch('./games.json');
+      response = await fetch(`./games.json?v=${timestamp}`);
       if (!response.ok) throw new Error();
     } catch (e) {
-      response = await fetch('./src/games.json');
+      response = await fetch(`./src/games.json?v=${timestamp}`);
     }
     games = await response.json();
     renderGames();
