@@ -1,16 +1,16 @@
 [
   {
+    "id": "web-browser",
+    "title": "Web Browser",
+    "description": "A private web browser to search the web freely.",
+    "thumbnail": "https://picsum.photos/seed/browser/400/300",
+    "url": "https://www.google.com/webhp?igu=1"
+  },
+  {
     "id": "apps-script-game",
     "title": "Apps Script Game",
     "description": "A custom web game hosted on Google Apps Script.",
     "thumbnail": "https://picsum.photos/seed/appsscript/400/300",
     "url": "https://script.google.com/macros/s/AKfycbwpdQWEBlZ2b0wXumTNiuNIoW8Dt-7AuxrQAe9f5gmmuyWBc2p9SkiVduz5kV0MNihubg/exec"
-  },
-  {
-    "id": "btd6",
-    "title": "Bloons TD 6",
-    "description": "The ultimate tower defense game.",
-    "thumbnail": "https://picsum.photos/seed/btd6/400/300",
-    "url": "https://3kh0.github.io/projects/bloons-td-6/index.html"
   }
 ]
